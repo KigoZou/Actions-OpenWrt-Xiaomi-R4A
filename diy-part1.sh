@@ -10,6 +10,22 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
+# 设置下载重试和超时
+export WGET_TRIES="100"
+export WGET_TIMEOUT="30"
+
+# 修改下载源为镜像站点
+sed -i 's/http:\/\/ftp.gnu.org\/gnu/https:\/\/mirrors.tuna.tsinghua.edu.cn\/gnu/g' scripts/download.pl
+sed -i 's/http:\/\/sources.buildroot.net/https:\/\/mirrors.tuna.tsinghua.edu.cn\/buildroot/g' scripts/download.pl
+sed -i 's/http:\/\/ftpmirror.gnu.org/https:\/\/mirrors.tuna.tsinghua.edu.cn\/gnu/g' scripts/download.pl
+sed -i 's/http:\/\/mirrors.kernel.org\/gnu/https:\/\/mirrors.tuna.tsinghua.edu.cn\/gnu/g' scripts/download.pl
+
+# 修改util-linux的下载源
+mkdir -p dl
+if [ ! -f "dl/util-linux-2.38.1.tar.xz" ]; then
+    wget -O dl/util-linux-2.38.1.tar.xz https://mirrors.tuna.tsinghua.edu.cn/kernel.org/linux/utils/util-linux/v2.38/util-linux-2.38.1.tar.xz
+fi
+
 # 取消插件注释
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
