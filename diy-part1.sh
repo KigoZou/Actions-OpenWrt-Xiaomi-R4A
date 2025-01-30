@@ -10,12 +10,6 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
-# 修改util-linux的下载源
-mkdir -p dl
-if [ ! -f "dl/util-linux-2.38.1.tar.xz" ]; then
-    wget -O dl/util-linux-2.38.1.tar.xz https://mirrors.tuna.tsinghua.edu.cn/kernel.org/linux/utils/util-linux/v2.38/util-linux-2.38.1.tar.xz
-fi
-
 # 取消插件注释
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
