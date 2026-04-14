@@ -27,7 +27,7 @@
 
 3. 修改diy-part2.sh
 
-修改openwrt登陆地址、密码、部分插件名称，
+修改openwrt登陆地址、主机名、WiFi名称、版本标识（加入仓库地址）等，
 
 ## 特性
 
@@ -42,8 +42,7 @@
 - OpenClash：强大的代理工具，支持多种协议
 - NPS：轻量级、功能强大的内网穿透代理服务器
 - IPv6：完整的IPv6支持
-- 多线多拨：提升带宽利用率
-- ZeroTier：虚拟局域网工具
+- Mwan3：多线负载均衡
 - Argon主题：清新现代的界面主题
 
 ### 网络优化
@@ -92,8 +91,9 @@
 
 1. 首次编译时间较长，请耐心等待
 2. 如需SSH连接调试，可以在触发工作流时选择SSH连接选项
-3. 固件默认管理地址：192.168.1.1
-4. 如果编译失败，请检查网络连接和源码更新状态
+3. 固件默认管理地址：10.0.0.253
+4. 默认 WiFi 名称：Xiaomi_R4A
+5. 如果编译失败，请检查网络连接和源码更新状态
 
 ## 使用
 
@@ -179,11 +179,3 @@ rm -f .config.old && make defconfig && ./scripts/diffconfig.sh > seed.config && 
 ## 3.7 刷入体验
 第一次要断电，按住`reset`键，再插入电源，等待5秒，浏览器访问 192.168.1.1 ，就进入 breed界面，进行升级
 之后的更新升级，都可以在 `系统`->`备份/升级`里面刷入新的固件
-附·一些图片
-
-![](https://gitee.com/Unkaer/blog/raw/master/images/material/20210314184159.webp)
-
-![](https://gitee.com/Unkaer/blog/raw/master/images/material/20210314184218.webp)
-
-
-[MIT](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © P3TERX
